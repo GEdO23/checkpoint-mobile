@@ -1,3 +1,4 @@
+import React from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -10,6 +11,9 @@ type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Lo
 export default function Login() {
     const navigation = useNavigation<OverviewScreenNavigationProps>();
 
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+
     return (
         <View style={styles.container}>
 
@@ -19,12 +23,22 @@ export default function Login() {
                 <View style={{display: 'flex', gap: 16, marginBottom: 24}}>
                     <View style={styles.inputContainer}>
                         <Image source={require('assets/email.png')}/>
-                        <TextInput placeholder='Your email' />
+                        <TextInput 
+                        placeholder='Your email' 
+                        value={email}
+                        onChangeText={(text)=> setEmail(text)}
+                        
+                        />
                     </View> 
 
                     <View style={styles.inputContainer}>
                         <Image source={require('assets/key.png')}/>
-                        <TextInput placeholder='Password' />
+                        <TextInput 
+                        placeholder='Password' 
+                        value={password}
+                        onChangeText={(text)=> setPassword(text)}
+                        secureTextEntry
+                        />
                     </View>
                     
                 </View>
