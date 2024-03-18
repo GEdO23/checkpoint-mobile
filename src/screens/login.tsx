@@ -31,7 +31,7 @@ export default function Login() {
                 
                 <Button mode='contained' style={styles.button}>Log In</Button>
                 
-                <Text style={styles.info}>Forgot password?</Text>
+                <Text style={[styles.info, {marginTop: 16, textAlign: 'right'}]}>Forgot password?</Text>
 
             </View>
             
@@ -48,8 +48,11 @@ export default function Login() {
                 </View>
             </View>
             
-            
-            <Text>Don't have an account? Sign Up</Text>
+            <View>
+                <Text>Don't have an account?</Text>
+                <Text style={styles.info}>Sign Up</Text>
+
+            </View>
 
         </View>
     );
@@ -80,8 +83,7 @@ const styles = StyleSheet.create({
         
     },
     info: {
-        fontSize: 15, fontWeight: '600', color: '#0062FF',
-        marginTop: 16, textAlign: 'right'
+        fontSize: 15, fontWeight: '600', color: '#0062FF'
     }
 
 });
