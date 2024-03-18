@@ -5,10 +5,12 @@ import { Text, View, StyleSheet } from 'react-native';
 
 import Details from '../screens/details';
 import Login from '../screens/login';
+import SignUp from '../screens/signup';
 
 export type RootStackParamList = {
     Login: undefined;
     Details: { name: string };
+    SignUp: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -18,20 +20,8 @@ export default function RootStack() {
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
                 <Stack.Screen name="Login" component={Login} />
-                <Stack.Screen
-                    name="Details"
-                    component={Details}
-                    options={({ navigation }) => ({
-                        headerLeft: () => (
-                            <View style={styles.backButton}>
-                                <Feather name="chevron-left" size={16} color="#007AFF" />
-                                <Text style={styles.backButtonText} onPress={navigation.goBack}>
-                                    Back
-                                </Text>
-                            </View>
-                        ),
-                    })}
-                />
+                <Stack.Screen name="SignUp" component={SignUp} />
+                <Stack.Screen name="Details" component={Details} />
             </Stack.Navigator>
         </NavigationContainer>
     );

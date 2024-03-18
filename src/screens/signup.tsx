@@ -6,9 +6,9 @@ import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'reac
 import { RootStackParamList } from '../navigation';
 import { Button, Icon } from 'react-native-paper';
 
-type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Login'>;
+type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'SignUp'>;
 
-export default function Login() {
+export default function SignUp() {
     const navigation = useNavigation<OverviewScreenNavigationProps>();
 
     const [email, setEmail] = React.useState('');
@@ -17,7 +17,7 @@ export default function Login() {
     return (
         <View style={styles.container}>
 
-            <Text style={styles.title}>Log In</Text>
+            <Text style={styles.title}>Sign Up</Text>
 
             <View style={{marginBottom: 32}}>
                 <View style={{display: 'flex', gap: 16, marginBottom: 24}}>
@@ -46,11 +46,8 @@ export default function Login() {
                 <Button 
                 mode='contained' 
                 style={styles.button}
-                onPress={() => navigation.navigate('SignUp')}
-                >Log In</Button>
-                
-                <Text style={[styles.info, {marginTop: 16, textAlign: 'right'}]}>Forgot password?</Text>
-
+                onPress={() => navigation.navigate('Login')}
+                >Sign Up</Button>
             </View>
             
 
@@ -78,7 +75,7 @@ export default function Login() {
             </View>
             
             <View style={{display: 'flex', flexDirection: 'row', gap: 8, marginTop: 40}}>
-                <Text style={{fontSize: 15, fontWeight: '400', color: '#969AB8'}}>Don't have an account?</Text>
+                <Text style={{fontSize: 15, fontWeight: '400', color: '#969AB8'}}>Already have an account?</Text>
                 <Text style={styles.info}>Sign Up</Text>
 
             </View>
