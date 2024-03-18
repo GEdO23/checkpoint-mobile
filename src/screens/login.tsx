@@ -3,7 +3,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { RootStackParamList } from '../navigation';
-import { Button } from 'react-native-paper';
+import { Button, Icon } from 'react-native-paper';
 
 type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Login'>;
 
@@ -15,12 +15,12 @@ export default function Login() {
 
             <Text style={styles.title}>Log In</Text>
 
-            <View>
+            <View style={{marginBottom: 32}}>
                 <View style={{display: 'flex', gap: 16, marginBottom: 24}}>
                     <View style={styles.inputContainer}>
+                        <Icon source={'key'}size={30} />
                         <TextInput placeholder='Your email' />
-
-                    </View>
+                    </View> 
 
                     <View style={styles.inputContainer}>
                         <TextInput placeholder='Password' />
@@ -37,7 +37,12 @@ export default function Login() {
             
 
             <View>
-                <Text>or</Text>
+                <View style={{display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 20}}>
+                    <View style={styles.line} />
+                    <Text style={{fontSize: 14, fontWeight: '500', color: '#969AB8'}}>or</Text>
+                    <View style={styles.line} />
+
+                </View>
 
                 <View>
                     <Text>Google</Text>
@@ -48,8 +53,8 @@ export default function Login() {
                 </View>
             </View>
             
-            <View>
-                <Text>Don't have an account?</Text>
+            <View style={{display: 'flex', flexDirection: 'row', gap: 8}}>
+                <Text style={{fontSize: 15, fontWeight: '400', color: '#969AB8'}}>Don't have an account?</Text>
                 <Text style={styles.info}>Sign Up</Text>
 
             </View>
@@ -84,6 +89,11 @@ const styles = StyleSheet.create({
     },
     info: {
         fontSize: 15, fontWeight: '600', color: '#0062FF'
+    },
+    line: {
+        height: 1,
+        width: '42.5%',
+        backgroundColor: '#E4E6EC'
     }
 
 });
