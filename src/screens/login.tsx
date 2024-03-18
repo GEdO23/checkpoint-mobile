@@ -43,7 +43,11 @@ export default function Login() {
                     
                 </View>
                 
-                <Button mode='contained' style={styles.button}>Log In</Button>
+                <Button 
+                mode='contained' 
+                style={styles.button}
+                onPress={() => navigation.navigate('Details', { name: 'Gabriel' })}
+                >Log In</Button>
                 
                 <Text style={[styles.info, {marginTop: 16, textAlign: 'right'}]}>Forgot password?</Text>
 
