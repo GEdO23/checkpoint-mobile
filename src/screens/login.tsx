@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { RootStackParamList } from '../navigation';
 import { Button, Icon } from 'react-native-paper';
@@ -18,13 +18,13 @@ export default function Login() {
             <View style={{marginBottom: 32}}>
                 <View style={{display: 'flex', gap: 16, marginBottom: 24}}>
                     <View style={styles.inputContainer}>
-                        <Icon source={'key'}size={30} />
+                        <Image source={require('assets/email.png')}/>
                         <TextInput placeholder='Your email' />
                     </View> 
 
                     <View style={styles.inputContainer}>
+                        <Image source={require('assets/key.png')}/>
                         <TextInput placeholder='Password' />
-
                     </View>
                     
                 </View>
@@ -44,16 +44,22 @@ export default function Login() {
 
                 </View>
 
-                <View>
-                    <Text>Google</Text>
+                <View style={{display: 'flex', flexDirection: 'row', gap: 20, marginTop: 20}}>
+                    <View style={styles.enterWithButton}>
+                        <Image source={require('assets/google.png')}/>
+                        <Text style={styles.enterWithText}>Google</Text>
+                    </View>
+
+                    <View style={styles.enterWithButton}>
+                        <Image source={require('assets/facebook.png')}/>
+                        <Text style={styles.enterWithText}>Facebook</Text>
+                    </View>
+
                 </View>
 
-                <View>
-                    <Text>Facebook</Text>
-                </View>
             </View>
             
-            <View style={{display: 'flex', flexDirection: 'row', gap: 8}}>
+            <View style={{display: 'flex', flexDirection: 'row', gap: 8, marginTop: 40}}>
                 <Text style={{fontSize: 15, fontWeight: '400', color: '#969AB8'}}>Don't have an account?</Text>
                 <Text style={styles.info}>Sign Up</Text>
 
@@ -83,7 +89,7 @@ const styles = StyleSheet.create({
     inputContainer: {
         borderWidth: 1.6, borderColor: '#E0E2E9', borderRadius: 8,
         paddingVertical: 8, paddingHorizontal: 20,
-        display: 'flex', flexDirection: 'row', gap: 16,
+        display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 16,
         fontSize: 14, fontWeight: '500', color: '#969AB8'
         
     },
@@ -91,9 +97,17 @@ const styles = StyleSheet.create({
         fontSize: 15, fontWeight: '600', color: '#0062FF'
     },
     line: {
-        height: 1,
-        width: '42.5%',
-        backgroundColor: '#E4E6EC'
+        height: 1, flexGrow: 1,
+        backgroundColor: '#000'
+    },
+    enterWithButton: {
+        paddingVertical: 8, paddingHorizontal: 20, 
+        borderWidth: 1.6, borderColor: '#E0E2E9', borderRadius: 8, 
+        display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 15,
+        flexGrow: 1
+    },
+    enterWithText: {
+        fontSize: 14, fontWeight: '600', color: '#171725'
     }
 
 });
