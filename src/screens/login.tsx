@@ -6,7 +6,7 @@ import { RootStackParamList } from '../navigation';
 
 type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Overview'>;
 
-export default function Overview() {
+export default function Login() {
   const navigation = useNavigation<OverviewScreenNavigationProps>();
 
   return (
